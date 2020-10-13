@@ -33,6 +33,7 @@ public class ChessMatch {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
 		ValidaSourcePosition(source);
+		ValidateTargetPosition(source,target);
 		Piece capture = MakeMove(source,target);
 		return (ChessPiece)capture;
 	}
@@ -77,4 +78,11 @@ public class ChessMatch {
         placeNewPiece('d', 8, new King(board, Color.BLACK));
 	}
 	
+	
+	private void ValidateTargetPosition(Position source, Position target) {
+		
+		if(!board.piece(source).possibleMove(target)) {
+			throw new ChessException("The chosen piece can't move to target position");
+		}
+	}
 }
