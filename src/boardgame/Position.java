@@ -35,7 +35,7 @@ public class Position {
 	
 	public void setValues(int row, int colum) {
 		this.row = row;
-		this.column = column;
+		this.column = colum;
 	}
 
 }

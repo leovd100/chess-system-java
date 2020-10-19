@@ -4,7 +4,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import boardgame.Board;
-import boardgame.BoardException;
 import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -25,6 +24,11 @@ public class Program {
 				System.out.println();
 				System.out.print("Source:  ");
 				ChessPositon source = UI.readChessPosition(sc);
+				
+				
+				boolean[][] possibleMoves = chessmatch.possibleMoves(source);
+				UI.clearScreen();
+				UI.printBoard(chessmatch.getPiece(), possibleMoves);
 				
 				System.out.println();
 				System.out.print("Target:  ");
